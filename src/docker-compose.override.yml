@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  catalogdb:
+    container_name: catalog-db-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - /data/db
+
+  SpaceFork.eShop.Catalog.api:
+    container_name: SpaceFork.eShop.Catalog.API
+    depends_on: 
+      - catalogdb
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - DatabaseSettings:ConnectionString=mongodb://catalog-db-mongo:27017
+      - DatabaseSettings:DatabaseName=Catalogdb
+      - DatabaseSettings:CollectionName=Products
+
+
+                                            
+    ports:
+      - "8000:80"
+    restart: always 
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

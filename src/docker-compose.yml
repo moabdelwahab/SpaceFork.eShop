@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  catalogdb:  
+    image: mongo
+   
+  SpaceFork.eShop.Catalog.api:
+    image: ${DOCKER_REGISTRY-}spacefork_eshop_catalog_api
+    build:
+      context: .
+      dockerfile: Services/Catalog/SpaceFork.eShop.Catalog.API/Dockerfile
