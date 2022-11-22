@@ -1,15 +1,31 @@
 version: '3.4'
 
 services:
+
   catalogdb:
     container_name: catalog-db-mongo
     ports:
       - "27017:27017"
     volumes:
       - /data/db
+  
+  BasketDb:
+    container_name: Baket-db-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - /data/db
 
-  SpaceFork.eShop.Catalog.api:
-    container_name: SpaceFork.eShop.Catalog.API
+  Portainer:
+    restart: always
+    container_name: portainer
+    ports:
+      - "8001:8000"
+      - "8002:9000"
+
+
+  SpaceFork.eShop.Catalog.API:
+    container_name: SpaceFork_eShop_Catalog_API
     depends_on: 
       - catalogdb
     environment:
@@ -18,12 +34,32 @@ services:
       - DatabaseSettings:ConnectionString=mongodb://catalog-db-mongo:27017
       - DatabaseSettings:DatabaseName=Catalogdb
       - DatabaseSettings:CollectionName=Products
-
-
-                                            
     ports:
       - "8000:80"
     restart: always 
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    
+
+
+  SpaceFork.eShop.Basket.API:
+    
+    container_name: SpaceFork_eShop_Basket_API
+    
+    depends_on: 
+      - SpaceFork.eShop.Catalog.API
+      - BasketDb
+    
+    ports:
+      - "7000:80"
+    
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - Redis:ConnectionString=BasketDb:6379
+    restart: always

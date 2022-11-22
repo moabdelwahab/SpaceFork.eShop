@@ -8,6 +8,9 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Services/Basket/SpaceFork.eShop.Basket.API/SpaceFork.eShop.Basket.API.csproj", "Services/Basket/SpaceFork.eShop.Basket.API/"]
+COPY ["Services/Basket/SpaceFork.eShop.Basket.Application/SpaceFork.eShop.Basket.Application.csproj", "Services/Basket/SpaceFork.eShop.Basket.Application/"]
+COPY ["Services/Basket/SpaceFork.eShop.Basket.Core/SpaceFork.eShop.Basket.Core.csproj", "Services/Basket/SpaceFork.eShop.Basket.Core/"]
+COPY ["Services/Basket/SpaceFork.eShop.Basket.Persistence/SpaceFork.eShop.Basket.Persistence.csproj", "Services/Basket/SpaceFork.eShop.Basket.Persistence/"]
 RUN dotnet restore "Services/Basket/SpaceFork.eShop.Basket.API/SpaceFork.eShop.Basket.API.csproj"
 COPY . .
 WORKDIR "/src/Services/Basket/SpaceFork.eShop.Basket.API"
