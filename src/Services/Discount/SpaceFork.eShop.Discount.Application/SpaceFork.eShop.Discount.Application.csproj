@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ApplicationContract\" />
+    <ProjectReference Include="..\SpaceFork.eShop.Discount.Core\SpaceFork.eShop.Discount.Core.csproj" />
   </ItemGroup>
 
 </Project>

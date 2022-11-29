@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>ab449962-fdf1-4119-9a47-91cf0fe56d6b</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SpaceFork.eShop.Discount.Application\SpaceFork.eShop.Discount.Application.csproj" />
+    <ProjectReference Include="..\SpaceFork.eShop.Discount.Core\SpaceFork.eShop.Discount.Core.csproj" />
+    <ProjectReference Include="..\SpaceFork.eShop.Discount.Persistence\SpaceFork.eShop.Discount.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,7 +1,10 @@
 using SpaceFork.eShop.Basket.Application.BasketService;
 using SpaceFork.eShop.Basket.Core.ApplicationContract;
+using SpaceFork.eShop.Basket.Core.InfrastructureContract;
 using SpaceFork.eShop.Basket.Core.PersistenceContract;
+using SpaceFork.eShop.Basket.Infrastructure.gRPCservices;
 using SpaceFork.eShop.Basket.Persistence;
+using SpaceFork.eShop.Discount.gRPC.Protos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,10 +15,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var _configuration = builder.Configuration;
+
 //Add Application Services 
 
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 builder.Services.AddScoped<IBasketService, BasketService>();
+
+builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
+            options.Address = new Uri(_configuration["GrpcSettings:DiscountUrl"]));
+builder.Services.AddScoped<IDiscountGrpcService, DiscountGrpcService>();
+
 
 builder.Services.AddStackExchangeRedisCache(options =>
 {

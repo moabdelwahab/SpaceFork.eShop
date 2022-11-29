@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option csharp_namespace = "SpaceFork.eShop.Discount.gRPC.Protos";
+
+service DiscountProtoService {
+	rpc GetDiscount (GetDiscountRequest) returns (CouponModel);
+	rpc CreateDiscount (CreateDiscountRequest) returns (CouponModel);
+	rpc UpdateDiscount (UpdateDiscountRequest) returns (CouponModel);
+	rpc DeleteDiscount (DeleteDiscountRequest) returns (DeleteDiscountResponse);
+}
+
+message GetDiscountRequest{
+	string productId = 1;
+}
+
+message CouponModel{
+	 string Id = 1;
+     string ProductId = 2; 
+     string Description = 3;
+     int32 Amount =4;
+}
+
+message CreateDiscountRequest
+{
+CouponModel coupon =1 ;
+}
+
+message UpdateDiscountRequest
+{
+CouponModel coupon =1 ;
+}
+
+message DeleteDiscountRequest
+{
+	string productId = 1 ;
+}
+
+message DeleteDiscountResponse
+{
+	bool success = 1;
+}

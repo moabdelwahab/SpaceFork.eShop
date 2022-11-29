@@ -1,5 +1,4 @@
 using SpaceFork.eShop.Catalog.Application;
-using SpaceFork.eShop.Catalog.Application.AutoMapperProfile;
 using SpaceFork.eShop.Catalog.Core.PersistenceContract;
 using SpaceFork.eShop.Catalog.Core.ServicesContract;
 using SpaceFork.eShop.Catalog.Persistence;

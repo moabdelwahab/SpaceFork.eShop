@@ -7,12 +7,18 @@ services:
   BasketDb:
     image: redis
   
+  discountdb:
+    image: postgres
+
+  pgadmin:
+    image: dpage/pgadmin4 
+
   Portainer:
     image: portainer/portainer-ce
 
       
   SpaceFork.eShop.Catalog.API:
-    image: ${DOCKER_REGISTRY-}spaceforkeshopcatalogapi
+    image: ${DOCKER_REGISTRY-}spacefork_eshop_catalog_api
     build:
       context: .
       dockerfile: Services/Catalog/SpaceFork.Services.Catalog.API/Dockerfile
@@ -23,3 +29,22 @@ services:
       context: .
       dockerfile: Services/Basket/SpaceFork.eShop.Basket.API/Dockerfile
   
+  spacefork.eshop.discount.api:
+    image: ${DOCKER_REGISTRY-}spacefork_eshop_discount_api
+    build:
+      context: .
+      dockerfile: Services/Discount/SpaceFork.eShop.Discount.API/Dockerfile
+
+  spacefork.eshop.discount.grpc:
+    image: ${DOCKER_REGISTRY-}spacefork_eshop_discount_grpc
+    build:
+      context: .
+      dockerfile: Services/Discount/SpaceFork.eShop.Discount.gRPC/Dockerfile
+
+volumes:
+  portainer_data:
+  catalog_data_mongo:
+  postgres_data:
+  pgadmindata:
+
+

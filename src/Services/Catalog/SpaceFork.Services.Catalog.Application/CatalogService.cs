@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 using SpaceFork.eShop.Catalog.Core;
 using SpaceFork.eShop.Catalog.Core.Dto;
 using SpaceFork.eShop.Catalog.Core.Entity;
 using SpaceFork.eShop.Catalog.Core.PersistenceContract;
 using SpaceFork.eShop.Catalog.Core.ServicesContract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SpaceFork.eShop.Catalog.Application
 {
@@ -16,11 +12,13 @@ namespace SpaceFork.eShop.Catalog.Application
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly ILogger<CatalogService> _logger;
 
-        public CatalogService(IUnitOfWork unitOfWork,IMapper mapper)
+        public CatalogService(IUnitOfWork unitOfWork,IMapper mapper,ILogger<CatalogService> logger )
         {
             _unitOfWork = unitOfWork;
             this._mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<bool> Create(CreateProductDto product)
@@ -55,6 +53,7 @@ namespace SpaceFork.eShop.Catalog.Application
         public async Task<IEnumerable<Product>> GetProducts()
         {
             var products = await _unitOfWork.catalogRepository.GetProducts();
+            _logger.LogInformation("This is success messaga from Catalog Service after calling Repository and get All Products then it will back to Controller ");
             return products;
         }
 
