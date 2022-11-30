@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceFork.eShop.Order.Core.Domain.Common
+namespace SpaceFork.eShop.Ordering.Core.Domain.Common
 {
     public abstract class BaseEntity
     {
@@ -13,6 +13,7 @@ namespace SpaceFork.eShop.Order.Core.Domain.Common
         public DateTime CreatedDate { get; set; }
         public string LastModifiedBy { get; set; }
         public DateTime LastModifiedDate { get; set; }
+        public bool IsDeleted { get; set; }
 
     }
 }

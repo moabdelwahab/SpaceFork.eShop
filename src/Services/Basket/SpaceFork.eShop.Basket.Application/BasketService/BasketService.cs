@@ -1,10 +1,12 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using LinqKit;
+using Microsoft.Extensions.Logging;
 using SpaceFork.eShop.Basket.Core.ApplicationContract;
 using SpaceFork.eShop.Basket.Core.Entity;
 using SpaceFork.eShop.Basket.Core.PersistenceContract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +17,7 @@ namespace SpaceFork.eShop.Basket.Application.BasketService
         private readonly ILogger _logger;
         private readonly IBasketRepository _basketRepository;
 
-        public BasketService(IBasketRepository basketRepository,ILogger<BasketService> logger)
+        public BasketService(IBasketRepository basketRepository, ILogger<BasketService> logger)
         {
             this._basketRepository = basketRepository;
             this._logger = logger;

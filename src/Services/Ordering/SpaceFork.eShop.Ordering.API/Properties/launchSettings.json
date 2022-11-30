@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "SpaceFork.eShop.Order.API": {
+    "SpaceFork.eShop.Ordering.API": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

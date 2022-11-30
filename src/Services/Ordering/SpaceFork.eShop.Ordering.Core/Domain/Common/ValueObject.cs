@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceFork.eShop.Order.Core.Domain.Common
+namespace SpaceFork.eShop.Ordering.Core.Domain.Common
 {
-    internal abstract class ValueObject
+    public abstract class ValueObject
     {
 
         //learn more https://learn.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects
