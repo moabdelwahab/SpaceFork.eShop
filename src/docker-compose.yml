@@ -15,6 +15,9 @@ services:
 
   Portainer:
     image: portainer/portainer-ce
+  
+  OrderDb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
 
       
   SpaceFork.eShop.Catalog.API:

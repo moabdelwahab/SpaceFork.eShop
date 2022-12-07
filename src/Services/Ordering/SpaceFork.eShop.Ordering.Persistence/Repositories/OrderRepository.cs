@@ -1,18 +1,24 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SpaceFork.eShop.Ordering.Core.Contracts.Persistence;
 using SpaceFork.eShop.Ordering.Core.Domain.Entity;
+using SpaceFork.eShop.Ordering.Persistence.DatabaseContext;
 
 namespace SpaceFork.eShop.Ordering.Persistence.Repositories
 {
     public class OrderRepository : AsyncRepository<Order>, IOrderRepository
     {
-        public OrderRepository(DbContext dbContext) : base(dbContext)
+        private readonly OrderDbContext _dbContext;
+
+        public OrderRepository(OrderDbContext dbContext) : base(dbContext)
         {
+            _dbContext = dbContext;
         }
 
-        public Task<IEnumerable<Order>> GetOrdersByUserName(string username)
+        public async Task<IEnumerable<Order>> GetOrdersByUserName(string username)
         {
-            throw new NotImplementedException();
+            if (!string.IsNullOrEmpty(username))
+                return await _dbContext.Orders.Where(order => order.UserName.ToLower() == username.ToLower()).ToListAsync();
+            return new List<Order>();
         }
     }
 }
