@@ -15,6 +15,6 @@ namespace SpaceFork.eShop.Ordering.Application.Features.Orders.CheckoutOrder
             CheckOutOrderRequest = checkOutOrderRequest ?? throw new ArgumentNullException(nameof(CheckoutOrderCommand));
         }
 
-        CheckOutOrderRequest CheckOutOrderRequest { get; set; } = new CheckOutOrderRequest();
+        public CheckOutOrderRequest CheckOutOrderRequest { get; set; } = new CheckOutOrderRequest();
     }
 }

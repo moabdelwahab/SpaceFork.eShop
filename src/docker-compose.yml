@@ -44,10 +44,17 @@ services:
       context: .
       dockerfile: Services/Discount/SpaceFork.eShop.Discount.gRPC/Dockerfile
 
+  spacefork.eshop.ordering.api:
+    image: ${DOCKER_REGISTRY-}spacefork_eshop_ordering_api
+    build:
+      context: .
+      dockerfile: Services/Ordering/SpaceFork.eShop.Ordering.API/Dockerfile
+
 volumes:
   portainer_data:
   catalog_data_mongo:
   postgres_data:
   pgadmindata:
+
 
 

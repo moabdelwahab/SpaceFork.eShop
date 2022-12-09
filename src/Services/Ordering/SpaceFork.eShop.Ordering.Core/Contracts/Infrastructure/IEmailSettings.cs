@@ -10,7 +10,7 @@ namespace SpaceFork.eShop.Ordering.Core.Contracts.Infrastructure
     {
         string ApiKey { get; set; }
         string Server { get; set; }
-        string SMTP_ServerIP { get; set; }
+        string Server_Port { get; set; }
         string Username { get; set; }
         string Password { get; set; }
         string FromAddress { get; set; }

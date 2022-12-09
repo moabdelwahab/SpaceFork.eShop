@@ -12,10 +12,10 @@ namespace SpaceFork.eShop.Ordering.Application.Features.Orders.CheckoutOrder
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger _logger;
+        private readonly ILogger<CheckoutOrderCommand> _logger;
         private readonly IEmailService _emailService;
 
-        public CheckoutOrderCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, ILogger logger, IEmailService emailService)
+        public CheckoutOrderCommandHandler(IMapper mapper, IUnitOfWork unitOfWork, ILogger<CheckoutOrderCommand> logger, IEmailService emailService)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
@@ -25,7 +25,7 @@ namespace SpaceFork.eShop.Ordering.Application.Features.Orders.CheckoutOrder
 
         public async Task<int> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
         {
-            var orderRequest = _mapper.Map<Order>(request);
+            var orderRequest = _mapper.Map<Order>(request.CheckOutOrderRequest);
             var result = await _unitOfWork.OrderRepository.AddAsync(orderRequest);
             await _emailService.SendEmail(OrderSentEmail(orderRequest));
             return result;

@@ -27,10 +27,7 @@ namespace SpaceFork.eShop.Ordering.Infrastructure
         public async Task<bool> SendEmail(Email email)
         {
             var emailSettingsValue = _emailSettings.Value;
-            var client = new SendGridClient(new SendGridClientOptions()
-            {
-                ApiKey = emailSettingsValue.ApiKey,
-            });
+            var client = new SendGridClient(emailSettingsValue.ApiKey);
 
             var senderEmailAddress = new EmailAddress()
             {

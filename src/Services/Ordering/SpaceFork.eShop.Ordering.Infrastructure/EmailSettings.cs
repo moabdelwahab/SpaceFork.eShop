@@ -9,12 +9,12 @@ namespace SpaceFork.eShop.Ordering.Infrastructure
 {
     public class EmailSettings : IEmailSettings
     {
-        public string ApiKey { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Server { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string SMTP_ServerIP { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Username { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Password { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string FromAddress { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string FromName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ApiKey { get; set ; }
+        public string Server { get; set; }
+        public string Server_Port { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string FromAddress { get; set; }
+        public string FromName { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace SpaceFork.eShop.Ordering.API.Extensions
 
             serviceCollection.AddScoped<IOrderRepository, OrderRepository>();
 
-            serviceCollection.AddTransient<IEmailService, EmailService>();
+            serviceCollection.AddScoped<IEmailService, EmailService>();
 
             return serviceCollection;
         }
