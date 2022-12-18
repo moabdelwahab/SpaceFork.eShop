@@ -13,6 +13,9 @@
   <ItemGroup>
     <PackageReference Include="Automapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.4.0" />
+    <PackageReference Include="MassTransit" Version="8.0.9" />
+    <PackageReference Include="MassTransit.extensions.DependencyInjection" Version="7.3.1" />
+    <PackageReference Include="MassTransit.rabbitMQ" Version="8.0.9" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
@@ -25,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\SpaceFork.eShop.EventBus.Messages\SpaceFork.eShop.EventBus.Messages.csproj" />
     <ProjectReference Include="..\SpaceFork.eShop.Ordering.Application\SpaceFork.eShop.Ordering.Application.csproj" />
     <ProjectReference Include="..\SpaceFork.eShop.Ordering.Infrastructure\SpaceFork.eShop.Ordering.Infrastructure.csproj" />
     <ProjectReference Include="..\SpaceFork.eShop.Ordering.Persistence\SpaceFork.eShop.Ordering.Persistence.csproj" />

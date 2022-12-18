@@ -49,17 +49,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceFork.eShop.Discount.gR
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ordering", "Ordering", "{87F9CD32-763F-4AB5-AA2A-B82E23E89A25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceFork.eShop.Ordering.Core", "Services\Ordering\SpaceFork.eShop.Ordering.Core\SpaceFork.eShop.Ordering.Core.csproj", "{858A1346-A360-415B-B5F2-60453D8F15A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceFork.eShop.Ordering.Core", "Services\Ordering\SpaceFork.eShop.Ordering.Core\SpaceFork.eShop.Ordering.Core.csproj", "{858A1346-A360-415B-B5F2-60453D8F15A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceFork.eShop.Ordering.Persistence", "Services\Ordering\SpaceFork.eShop.Ordering.Persistence\SpaceFork.eShop.Ordering.Persistence.csproj", "{6F911378-7B65-42D7-93BB-909720B0FEE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceFork.eShop.Ordering.Persistence", "Services\Ordering\SpaceFork.eShop.Ordering.Persistence\SpaceFork.eShop.Ordering.Persistence.csproj", "{6F911378-7B65-42D7-93BB-909720B0FEE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceFork.eShop.Ordering.Infrastructure", "Services\Ordering\SpaceFork.eShop.Ordering.Infrastructure\SpaceFork.eShop.Ordering.Infrastructure.csproj", "{CD3DD05E-3E38-408D-8C38-19526BF07142}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceFork.eShop.Ordering.Infrastructure", "Services\Ordering\SpaceFork.eShop.Ordering.Infrastructure\SpaceFork.eShop.Ordering.Infrastructure.csproj", "{CD3DD05E-3E38-408D-8C38-19526BF07142}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceFork.eShop.Ordering.API", "Services\Ordering\SpaceFork.eShop.Ordering.API\SpaceFork.eShop.Ordering.API.csproj", "{D9850B99-BCF7-4C34-ABA1-5353B3FB5225}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceFork.eShop.Ordering.API", "Services\Ordering\SpaceFork.eShop.Ordering.API\SpaceFork.eShop.Ordering.API.csproj", "{D9850B99-BCF7-4C34-ABA1-5353B3FB5225}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceFork.eShop.Ordering.SharedKernal", "Services\Ordering\SpaceFork.eShop.Ordering.SharedKernal\SpaceFork.eShop.Ordering.SharedKernal.csproj", "{96EA50CA-D48F-4D55-91B7-89C88627FED6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceFork.eShop.Ordering.SharedKernal", "Services\Ordering\SpaceFork.eShop.Ordering.SharedKernal\SpaceFork.eShop.Ordering.SharedKernal.csproj", "{96EA50CA-D48F-4D55-91B7-89C88627FED6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceFork.eShop.Ordering.Application", "Services\Ordering\SpaceFork.eShop.Ordering.Application\SpaceFork.eShop.Ordering.Application.csproj", "{2E8213DA-ADBC-42BC-BF10-9A21A6E2879F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceFork.eShop.Ordering.Application", "Services\Ordering\SpaceFork.eShop.Ordering.Application\SpaceFork.eShop.Ordering.Application.csproj", "{2E8213DA-ADBC-42BC-BF10-9A21A6E2879F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{0EE2D79A-F95E-4A49-A5A1-11B99D0AB2A3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceFork.eShop.EventBus.Messages", "BuildingBlocks\SpaceFork.eShop.EventBus.Messages\SpaceFork.eShop.EventBus.Messages.csproj", "{FFAEDE95-3082-4071-BA79-803C4D1A5EC7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{2B833DEC-8EFD-4D2A-9683-B14AFBA34BC8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceFork.eShop.ApiGateways.Ocelot", "ApiGateways\SpaceFork.eShop.ApiGateways.Ocelot\SpaceFork.eShop.ApiGateways.Ocelot.csproj", "{C7DC51DB-83C0-4B27-A366-D1A61E6E73D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -163,6 +171,14 @@ Global
 		{2E8213DA-ADBC-42BC-BF10-9A21A6E2879F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E8213DA-ADBC-42BC-BF10-9A21A6E2879F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E8213DA-ADBC-42BC-BF10-9A21A6E2879F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFAEDE95-3082-4071-BA79-803C4D1A5EC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFAEDE95-3082-4071-BA79-803C4D1A5EC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFAEDE95-3082-4071-BA79-803C4D1A5EC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFAEDE95-3082-4071-BA79-803C4D1A5EC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7DC51DB-83C0-4B27-A366-D1A61E6E73D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7DC51DB-83C0-4B27-A366-D1A61E6E73D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7DC51DB-83C0-4B27-A366-D1A61E6E73D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7DC51DB-83C0-4B27-A366-D1A61E6E73D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -195,6 +211,8 @@ Global
 		{D9850B99-BCF7-4C34-ABA1-5353B3FB5225} = {87F9CD32-763F-4AB5-AA2A-B82E23E89A25}
 		{96EA50CA-D48F-4D55-91B7-89C88627FED6} = {87F9CD32-763F-4AB5-AA2A-B82E23E89A25}
 		{2E8213DA-ADBC-42BC-BF10-9A21A6E2879F} = {87F9CD32-763F-4AB5-AA2A-B82E23E89A25}
+		{FFAEDE95-3082-4071-BA79-803C4D1A5EC7} = {0EE2D79A-F95E-4A49-A5A1-11B99D0AB2A3}
+		{C7DC51DB-83C0-4B27-A366-D1A61E6E73D8} = {2B833DEC-8EFD-4D2A-9683-B14AFBA34BC8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {623F7626-5AB2-4F3F-BE03-558E9F380402}

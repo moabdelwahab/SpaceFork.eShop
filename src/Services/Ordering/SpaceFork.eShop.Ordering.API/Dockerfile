@@ -3,10 +3,12 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
+EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Services/Ordering/SpaceFork.eShop.Ordering.API/SpaceFork.eShop.Ordering.API.csproj", "Services/Ordering/SpaceFork.eShop.Ordering.API/"]
+COPY ["BuildingBlocks/SpaceFork.eShop.EventBus.Messages/SpaceFork.eShop.EventBus.Messages.csproj", "BuildingBlocks/SpaceFork.eShop.EventBus.Messages/"]
 COPY ["Services/Ordering/SpaceFork.eShop.Ordering.Application/SpaceFork.eShop.Ordering.Application.csproj", "Services/Ordering/SpaceFork.eShop.Ordering.Application/"]
 COPY ["Services/Ordering/SpaceFork.eShop.Ordering.Core/SpaceFork.eShop.Ordering.Core.csproj", "Services/Ordering/SpaceFork.eShop.Ordering.Core/"]
 COPY ["Services/Ordering/SpaceFork.eShop.Ordering.Infrastructure/SpaceFork.eShop.Ordering.Infrastructure.csproj", "Services/Ordering/SpaceFork.eShop.Ordering.Infrastructure/"]

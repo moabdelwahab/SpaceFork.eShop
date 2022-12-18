@@ -57,6 +57,13 @@ services:
     ports:
       - "1433:1433"
     restart: always
+
+  RabbitMQ:
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
 ####################################################################################################
 
 
@@ -71,7 +78,7 @@ services:
       - DatabaseSettings:DatabaseName=Catalogdb
       - DatabaseSettings:CollectionName=Products
     ports:
-      - "8000:80"
+      - "3030:80"
     restart: always 
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
@@ -88,7 +95,7 @@ services:
       - BasketDb
     
     ports:
-      - "7000:80"
+      - "3040:80"
     
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
@@ -99,6 +106,7 @@ services:
       - ASPNETCORE_URLS=http://+:80
       - Redis:ConnectionString=BasketDb:6379
       - GrpcSettings:DiscountUrl=http://SpaceFork_eShop_Discount_gRPC
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
     restart: always
 
 
@@ -111,7 +119,7 @@ services:
       - ASPNETCORE_URLS=http://+:80
       - PostgresDbSettings:ConnectionString=Server=discount_db_postgres;Port=5432;Database=DiscountDb;User Id=admin;Password=admin1234;
     ports:
-      - "5000:80"
+      - "3050:80"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
@@ -124,7 +132,7 @@ services:
       - PostgresDbSettings:ConnectionString=Server=discount_db_postgres;Port=5432;Database=DiscountDb;User Id=admin;Password=admin1234;
     restart: always
     ports:
-      - "5001:80"
+      - "3060:80"
     
 
   spacefork.eshop.ordering.api:
@@ -134,8 +142,9 @@ services:
       - ConnectionStrings:Default=server=OrderDb;Database=OrderDb;User Id = sa;Password=Mm2161181**##@@;Encrypt=True;TrustServerCertificate=True;
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
     ports:
-      - "4001:80"
+      - "3070:80"
 
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro

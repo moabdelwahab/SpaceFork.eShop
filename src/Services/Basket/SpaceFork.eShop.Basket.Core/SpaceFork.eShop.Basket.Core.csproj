@@ -10,4 +10,12 @@
     <Folder Include="ApplicationContract\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\SpaceFork.eShop.EventBus.Messages\SpaceFork.eShop.EventBus.Messages.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,12 @@
+using MassTransit;
 using SpaceFork.eShop.Basket.Application.BasketService;
+using SpaceFork.eShop.Basket.Application.Mapping;
 using SpaceFork.eShop.Basket.Core.ApplicationContract;
 using SpaceFork.eShop.Basket.Core.InfrastructureContract;
 using SpaceFork.eShop.Basket.Core.PersistenceContract;
 using SpaceFork.eShop.Basket.Infrastructure.gRPCservices;
 using SpaceFork.eShop.Basket.Persistence;
 using SpaceFork.eShop.Discount.gRPC.Protos;
-using System.Linq.Expressions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,10 +23,19 @@ var _configuration = builder.Configuration;
 
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 builder.Services.AddScoped<IBasketService, BasketService>();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
             options.Address = new Uri(_configuration["GrpcSettings:DiscountUrl"]));
 builder.Services.AddScoped<IDiscountGrpcService, DiscountGrpcService>();
+
+builder.Services.AddMassTransit(config =>
+{
+    config.UsingRabbitMq((ctx, config) =>
+    {
+        config.Host(_configuration["EventBusSettings:HostAddress"]);
+    });
+});
 
 
 builder.Services.AddStackExchangeRedisCache(options =>

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SpaceFork.eShop.Basket.Core.ApplicationContract;
 using SpaceFork.eShop.Basket.Core.Entity;
+using SpaceFork.eShop.Basket.Core.EventModels;
 using SpaceFork.eShop.Basket.Core.InfrastructureContract;
 
 namespace SpaceFork.eShop.Basket.API.Controllers
@@ -45,5 +46,13 @@ namespace SpaceFork.eShop.Basket.API.Controllers
             return Ok(true);
         }
 
+        [Route("[action]")]
+        [HttpPost]
+        public async Task<IActionResult> Checkout([FromBody] BasketCheckout basketCheckout)
+        {
+            await _basketService.Checkout(basketCheckout);
+            return Ok();
+
+        }
     }
 }

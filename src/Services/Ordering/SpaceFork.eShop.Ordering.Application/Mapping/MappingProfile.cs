@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using SpaceFork.eShop.EventBus.Messages.Events;
 using SpaceFork.eShop.Ordering.Application.Features.Orders.CheckoutOrder;
 using SpaceFork.eShop.Ordering.Application.Features.Orders.UpdateOrder;
 using SpaceFork.eShop.Ordering.Core.DataToTransfer.Requests;
@@ -13,6 +14,8 @@ namespace SpaceFork.eShop.Ordering.Application.Mapping
             CreateMap<Order, OrderVM>().ReverseMap();
             CreateMap<CheckOutOrderRequest, Order>().ReverseMap();
             CreateMap<UpdateOrderRequest, Order>().ReverseMap();
+            CreateMap<BasketCheckoutEvent, CheckOutOrderRequest>().ReverseMap();
+
         }
     }
 }

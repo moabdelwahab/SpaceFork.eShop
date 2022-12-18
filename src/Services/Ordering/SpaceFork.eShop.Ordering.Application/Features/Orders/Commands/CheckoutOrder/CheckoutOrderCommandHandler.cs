@@ -25,20 +25,28 @@ namespace SpaceFork.eShop.Ordering.Application.Features.Orders.CheckoutOrder
 
         public async Task<int> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
         {
-            var orderRequest = _mapper.Map<Order>(request.CheckOutOrderRequest);
-            var result = await _unitOfWork.OrderRepository.AddAsync(orderRequest);
-            await _emailService.SendEmail(OrderSentEmail(orderRequest));
-            return result;
+            try
+            {
+                var orderRequest = _mapper.Map<Order>(request.CheckOutOrderRequest);
+                var result = await _unitOfWork.OrderRepository.AddAsync(orderRequest);
+                await _emailService.SendEmail(OrderSentEmail(orderRequest));
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         private Email OrderSentEmail(Order order)
         {
             return new Email()
             {
-                Body=$"Dear {order.FirstName} {order.LastName}, Kindly infromed that your Order with total Price : {order.TotalPrice} is Submitted",
-                From=$"mhmad.abdelwahab@outlook.com",
-                Subject=$"eShop Order has been submitted",
-                To="mhmad.abdelwahab@outlook.com"
+                Body = $"Dear {order.FirstName} {order.LastName}, Kindly infromed that your Order with total Price : {order.TotalPrice} is Submitted",
+                From = $"mhmad.abdelwahab@outlook.com",
+                Subject = $"eShop Order has been submitted",
+                To = "mhmad.abdelwahab@outlook.com"
             };
         }
 

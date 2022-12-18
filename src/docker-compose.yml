@@ -19,6 +19,9 @@ services:
   OrderDb:
     image: mcr.microsoft.com/mssql/server:2022-latest
 
+  RabbitMQ:
+    image: rabbitmq:3-management
+
       
   SpaceFork.eShop.Catalog.API:
     image: ${DOCKER_REGISTRY-}spacefork_eshop_catalog_api

@@ -1,4 +1,5 @@
 ﻿using SpaceFork.eShop.Basket.Core.Entity;
+using SpaceFork.eShop.Basket.Core.EventModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,6 @@ namespace SpaceFork.eShop.Basket.Core.ApplicationContract
         Task<bool> UpdateUserBasket(ShoppingCart shoppingCart);
         Task<bool> DeleteUserBasket(string username);
         Task<ShoppingCart> GetUserBasket(string username);
+        Task<bool> Checkout(BasketCheckout basketCheckout);
     }
 }

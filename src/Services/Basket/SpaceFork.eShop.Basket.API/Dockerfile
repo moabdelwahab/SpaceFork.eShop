@@ -10,6 +10,8 @@ WORKDIR /src
 COPY ["Services/Basket/SpaceFork.eShop.Basket.API/SpaceFork.eShop.Basket.API.csproj", "Services/Basket/SpaceFork.eShop.Basket.API/"]
 COPY ["Services/Basket/SpaceFork.eShop.Basket.Application/SpaceFork.eShop.Basket.Application.csproj", "Services/Basket/SpaceFork.eShop.Basket.Application/"]
 COPY ["Services/Basket/SpaceFork.eShop.Basket.Core/SpaceFork.eShop.Basket.Core.csproj", "Services/Basket/SpaceFork.eShop.Basket.Core/"]
+COPY ["BuildingBlocks/SpaceFork.eShop.EventBus.Messages/SpaceFork.eShop.EventBus.Messages.csproj", "BuildingBlocks/SpaceFork.eShop.EventBus.Messages/"]
+COPY ["Services/Basket/SpaceFork.eShop.Basket.Infrastructure/SpaceFork.eShop.Basket.Infrastructure.csproj", "Services/Basket/SpaceFork.eShop.Basket.Infrastructure/"]
 COPY ["Services/Basket/SpaceFork.eShop.Basket.Persistence/SpaceFork.eShop.Basket.Persistence.csproj", "Services/Basket/SpaceFork.eShop.Basket.Persistence/"]
 RUN dotnet restore "Services/Basket/SpaceFork.eShop.Basket.API/SpaceFork.eShop.Basket.API.csproj"
 COPY . .
