@@ -17,7 +17,7 @@ namespace SpaceFork.eShop.Ordering.API.Controllers
             _orderingService = orderingService;
         }
 
-        [HttpGet("{username}", Name = "GetOrders")]
+        [HttpGet("{username}")]
         public async Task<ActionResult<List<Order>>> GetOrderByUsername(string username)
         {
             var result = await _orderingService.GetOrdersOfUser(username);

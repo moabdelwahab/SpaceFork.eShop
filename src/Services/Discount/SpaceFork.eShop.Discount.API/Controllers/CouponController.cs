@@ -24,6 +24,14 @@ namespace SpaceFork.eShop.Discount.API.Controllers
             return Ok(coupon);
         }
 
+        [HttpDelete]
+        [Route("{productId}")]
+        public async Task<ActionResult<bool>> DeleteCoupon(string productId)
+        {
+            var result = await _discountService.DeleteCoupon(productId);
+            return Ok(result);
+        }
+   
         [HttpPut]
         public async Task<ActionResult<bool>> UpdateCoupon(Coupon coupon)
         {
@@ -37,11 +45,5 @@ namespace SpaceFork.eShop.Discount.API.Controllers
             return Ok(result);
         }
 
-        [HttpDelete]
-        public async Task<ActionResult<bool>> DeleteCoupon(string Id)
-        {
-            var result = await _discountService.DeleteCoupon(Id);
-            return Ok(result);
-        }
     }
 }

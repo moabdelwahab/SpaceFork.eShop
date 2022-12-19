@@ -53,11 +53,18 @@ services:
       context: .
       dockerfile: Services/Ordering/SpaceFork.eShop.Ordering.API/Dockerfile
 
+  spacefork.eshop.apigateways.ocelot:
+    image: ${DOCKER_REGISTRY-}spaceforkeshopapigatewaysocelot
+    build:
+      context: .
+      dockerfile: ApiGateways/SpaceFork.eShop.ApiGateways.Ocelot/Dockerfile
+
 volumes:
   portainer_data:
   catalog_data_mongo:
   postgres_data:
   pgadmindata:
+
 
 
 

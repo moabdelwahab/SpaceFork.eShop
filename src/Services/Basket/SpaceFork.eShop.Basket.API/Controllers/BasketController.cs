@@ -20,6 +20,21 @@ namespace SpaceFork.eShop.Basket.API.Controllers
             _discountGrpcService = discountGrpcService;
         }
 
+        [HttpGet]
+        [Route("{username}")]
+        public async Task<ActionResult<ShoppingCart>> GetUserBasket(string username)
+        {
+            var result = await _basketService.GetUserBasket(username);
+            return Ok(result);
+        }
+
+        [HttpDelete("{username}")]
+        public async Task<ActionResult<bool>> DeleteUserResult(string username)
+        {
+            await _basketService.DeleteUserBasket(username);
+            return Ok(true);
+        }
+
         [HttpPost]
         public async Task<ActionResult<bool>> UpdateUserBasket(ShoppingCart shoppingCart)
         {
@@ -29,21 +44,6 @@ namespace SpaceFork.eShop.Basket.API.Controllers
             var result = await _basketService.UpdateUserBasket(shoppingCart);
 
             return Ok(result);
-        }
-
-        [HttpGet]
-        [Route("{username}")]
-        public async Task<ActionResult<ShoppingCart>> GetUserBasket(string username)
-        {
-            var result = await _basketService.GetUserBasket(username);
-            return Ok(result);
-        }
-
-        [HttpDelete]
-        public async Task<ActionResult<bool>> DeleteUserResult(string username)
-        {
-            await _basketService.DeleteUserBasket(username);
-            return Ok(true);
         }
 
         [Route("[action]")]

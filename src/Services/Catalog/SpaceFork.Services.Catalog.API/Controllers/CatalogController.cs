@@ -21,7 +21,6 @@ namespace SpaceFork.eShop.Catalog.API.Controllers
         }
 
         [HttpGet]
-        [Route("Products")]
         [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Product>>> GetAllProducts()
         {
@@ -29,9 +28,7 @@ namespace SpaceFork.eShop.Catalog.API.Controllers
             return Ok(products);
         }
 
-
         [HttpPost]
-        [Route("Product")]
         public async Task<ActionResult<bool>> CreateProduct(CreateProductDto createProductDto)
         {
             var CreateResult = await _catalogService.Create(createProductDto);
@@ -39,22 +36,20 @@ namespace SpaceFork.eShop.Catalog.API.Controllers
         }
 
         [HttpPut]
-        [Route("Product")]
         public async Task<ActionResult<bool>> UpdateProduct(UpdateProductDto updateProdcutDto)
         {
             var CreateResult = await _catalogService.Update(updateProdcutDto);
             return Ok(CreateResult);
         }
 
-        [HttpDelete]
-        [Route("Product")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult<bool>> Delete(string id)
         {
             var CreateResult = await _catalogService.Delete(id);
             return Ok(CreateResult);
         }
 
-        [HttpGet("products/{id}", Name = "GetProduct")]
+        [HttpGet("{id}", Name = "GetProduct")]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Product>> GetProdcut(string id)

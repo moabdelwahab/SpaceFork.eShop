@@ -1,0 +1,156 @@
+{
+  "Routes": [
+    //Catalog
+    {
+      "DownstreamPathTemplate": "/api/Catalog",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "SpaceFork_eShop_Catalog_API",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Catalog",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ]
+    },
+    //Catalog/{id}
+    {
+      "DownstreamPathTemplate": "/api/Catalog/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "SpaceFork_eShop_Catalog_API",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Catalog/{id}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ]
+    },
+    //Catalog/GetProdcutByName/{Name}
+    {
+      "DownstreamPathTemplate": "/api/Catalog/GetProdcutByName/{Name}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "SpaceFork_eShop_Catalog_API",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Catalog/GetProdcutByName/{Name}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    //Catalog/GetProdcutByCategory/{Category}
+    {
+      "DownstreamPathTemplate": "/api/Catalog/GetProdcutByCategory/{Category}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "SpaceFork_eShop_Catalog_API",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Catalog/GetProdcutByCategory/{Category}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    //////////////////////////////////////////////////////////////////////////////////////
+
+    //Basket
+    {
+      "DownstreamPathTemplate": "/api/Basket/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "SpaceFork_eShop_Basket_API",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Basket/",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    //Basket/{username}
+    {
+      "DownstreamPathTemplate": "/api/Basket/{username}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "SpaceFork_eShop_Basket_API",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Basket/{username}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ]
+    },
+    //Basket/Checkout
+    {
+      "DownstreamPathTemplate": "/api/Basket/Checkout",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "SpaceFork_eShop_Basket_API",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Basket/Checkout",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    //////////////////////////////////////////////////////////////////////////////////////
+
+    //Discount
+    {
+      "DownstreamPathTemplate": "/api/Coupon",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "SpaceFork_eShop_Discount_API",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Coupon/",
+      "UpstreamHttpMethod": [ "Post", "Put" ]
+    },
+    //Discount/{productId}
+    {
+      "DownstreamPathTemplate": "/api/Coupon/{productId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "SpaceFork_eShop_Discount_API",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Coupon/{productId}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ]
+    },
+    //////////////////////////////////////////////////////////////////////////////////////
+
+    //Order/
+    {
+      "DownstreamPathTemplate": "/api/Order/{username}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "SpaceFork_eShop_Ordering_API",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Order/",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete" ]
+    },
+    //Order/{username}
+    {
+      "DownstreamPathTemplate": "/api/Order/{username}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "SpaceFork_eShop_Ordering_API",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Order/{username}",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:3000"
+  }
+}
