@@ -8,7 +8,7 @@
 
 
         // Items from Product Service
-        public string Name { get; set; }
+        public string ProductName { get; set; }
         public string Category { get; set; }
         public string Summary { get; set; }
         public string Description { get; set; }
