@@ -59,11 +59,18 @@ services:
       context: .
       dockerfile: ApiGateways/SpaceFork.eShop.ApiGateways.Ocelot/Dockerfile
 
+  spacefork.eshop.apigateways.shoppingaggregator:
+    image: ${DOCKER_REGISTRY-}spaceforkeshopapigatewaysshoppingaggregator
+    build:
+      context: .
+      dockerfile: ApiGateways/SpaceFork.eShop.Apigateways.ShoppingAggregator/Dockerfile
+
 volumes:
   portainer_data:
   catalog_data_mongo:
   postgres_data:
   pgadmindata:
+
 
 
 
